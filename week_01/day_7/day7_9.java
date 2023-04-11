@@ -14,7 +14,8 @@ class day7_9
 		int ar2[] = {1, 7, 20, 80, 100} ;
 		int ar3[] = {1, 4, 15, 20, 30, 70, 80, 120} ;
 		
-		
+		String ans="";
+		String ans1="";
 		for(int i=0;i<ar1.length;i++)
 		{
 			
@@ -27,6 +28,7 @@ class day7_9
 				if(ar1[i]==ar2[j])
 				{
 					freq=ar1[i];
+					ans+=ar1[i]+" ";
 				}
 				
 			}
@@ -38,42 +40,17 @@ class day7_9
 				if(ar1[i]==ar3[k])
 				{
 					freq=ar1[i];
+					ans1+=ar1[i]+" ";
 				}
 				
 			}
-			if(freq!=-1)
-			{
-			System.out.println(freq);
-			}
+			
 			
 		}
 		
-		
-	/*	for(int i=0;i<ar1.length;i++)
+		if(ans.equals(ans1))
 		{
-			
-			int freq1=0;
-			for(int j=0;j<ar3.length;j++)
-			{
-			
-				
-				
-				if(ar1[i]==ar3[j])
-				{
-					//count++;
-					freq1=ar1[i];
-				}
-				
-			}
-			if(freq1!=0)
-			{
-			System.out.println(freq1);
-			}
+			System.out.println(ans);
 		}
-		
-		if(freq==freq1)
-		{
-			System.out.println(freq);
-		} */
 	}
 }
