@@ -3,7 +3,8 @@ class InsertionSort
 	public static void main(String[] args)
 	{
 		int[] arr={1,2,3,9,5,5,7};
-		for(int i=1;i<arr;i++)
+		int n=arr.length;
+		for(int i=1;i<arr.length;i++)
 		{
 			int k=arr[i];
 			int j=i-1;
