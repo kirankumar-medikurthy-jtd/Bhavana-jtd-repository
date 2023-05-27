@@ -1,0 +1,43 @@
+
+
+<html>
+	<head>
+		<title>
+		</title>
+		<style>
+		</style>
+	</head>
+	<body>
+	<div class="space">
+		<input type="text" placeholder="First Name" class="fm">
+		<input type="text" placeholder="last Name" class="ln"/>
+		<button onClick="clickOnButton()" id="btn">Click Me</button><br><br>
+		<div class="mainStore" ></div>
+	</div>
+	<body>
+	<script>
+		let btn=document.querySelector(".btn");
+		let fm=document.querySelector(".fm").value;
+		let lm=document.querySelector(".ln").value;
+		let mainStore=document.querySelector(".mainStore");
+		//let space=document.querySelector(".space");
+		
+		function clickOnButton()
+		{
+	
+			let button=document.getElementById("btn");
+			//store.innerHTML=" ";
+			let mainStore=document.querySelector(".mainStore");
+			
+			let fm=document.querySelector(".fm").value;
+			let lm=document.querySelector(".ln").value;
+			
+			let store=document.createElement("div");
+			
+			store.append(fm,lm);
+			mainStore.append(store);
+		
+		
+		}
+	</script>
+</html>
