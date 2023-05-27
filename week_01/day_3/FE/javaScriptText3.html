@@ -1,0 +1,77 @@
+<html>
+	<head>
+		<title>
+		</title>
+		<style>
+			.totaluserdata
+			{
+				display:flex;
+				flex-wrap:wrap;
+			}
+			.divdata
+			{
+				margin-left:30px;
+				border:2px solid black;
+				margin-bottom:10px;
+				width:300px;
+			}
+			.styleforimg
+			{
+				width:250px;
+				margin:10px;
+			}
+		</style>
+	</head>
+	<body>
+		
+			<input type="text" class="input"/>
+			<button onClick="search()">Search</button>
+			<br><br>
+		
+		<div class="totaluserdata"></div>
+	</body>
+	<script>
+		        var logo = document.getElementById("user");
+		        var totaluserdata=document.querySelector(".totaluserdata");
+		        let repos;
+		        
+			 async function search()
+			 {
+			 	 let n=document.querySelector(".input").value;
+			 	 console.log(n);
+			 	 let response = await fetch(`http://www.omdbapi.com/?apikey=6663c708&s=${n}`);
+			 	        console.log(n);
+				 	let result = await response.json();
+				 	let repos = result['Search'];
+				 	console.log(repos);
+				 	
+			 		for(let i=0;i<repos.length;i++)
+			 		{
+			 			let div=document.createElement("div");
+			 			div.setAttribute("class","divdata");
+			 			
+			 			
+		 				let image=document.createElement("img");
+			 			image.setAttribute("src",repos[i].Poster);
+			 			image.setAttribute("class","styleforimg");
+			 			
+			 			let name=document.createElement("p");
+			 			name.innerText="Name:"+repos[i].Title;
+			 			
+			 			let imdbID=document.createElement("p");
+			 			imdbID.innerText="ID:"+repos[i].imdbID;
+			 			
+			 			let Type=document.createElement("p");
+			 			Type.innerText="ID:"+repos[i].Type;
+			 			
+			 			let idinfo=document.createElement("p");
+			 			idinfo.innerText="Year:"+repos[i].Year;
+			 			
+			 			div.append(image,name,imdbID,Type,idinfo);
+			 			//console.log(div);
+			 			totaluserdata.append(div);
+			 		}
+			}
+			
+	</script>
+</html>
