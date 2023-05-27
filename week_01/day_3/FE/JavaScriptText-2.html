@@ -1,0 +1,60 @@
+<html>
+	<head>
+		<title>
+		</title>
+		<style>
+			.totaluserdata
+			{
+				background-color:aqua;
+				padding:0px;
+				margin-left:500px;
+			}
+			.flex
+			{
+				display:flex;
+			}
+			.divdata
+			{
+				margin:20px;
+			}
+		</style>
+	</head>
+	<body>
+		
+			<input type="text" class="input"/>
+			<button onClick="search()">Search</button>
+			<br><br>
+		
+		<div class="flex"><div class="totaluserdata"></div></div>
+	</body>
+	<script>
+		        var logo = document.getElementById("user");
+		        var totaluserdata=document.querySelector(".totaluserdata");
+		        let repos;
+		        
+			 async function search()
+			 {
+			 	 let n=document.querySelector(".input").value;
+			 	 console.log(n);
+			 	 let response = await fetch(`http://www.omdbapi.com/?apikey=6663c708&s=${n}`);
+			 	        console.log(n);
+				 	let result = await response.json();
+				 	let repos = result['Search'];
+				 	console.log(repos);
+				 	
+			 		for(let i=0;i<repos.length;i++)
+			 		{
+			 			let div=document.createElement("div");
+			 			div.setAttribute("class","divdata");
+			 			
+			 			let name=document.createElement("p");
+			 			name.innerText=repos[i].Title;
+			 			
+			 			div.append(name);
+			 			//console.log(div);
+			 			totaluserdata.append(div);
+			 		}
+			}
+			
+	</script>
+</html>
