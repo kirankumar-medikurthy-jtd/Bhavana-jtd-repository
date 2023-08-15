@@ -112,6 +112,25 @@ class LinkedList
 		}
 	}
 	
+	public static Node reverse(Node first)
+	{
+		if(first == null || first.next == null)
+		{
+			return first;
+		}
+		Node previous=first;
+		Node current=previous.next;
+		previous.next=null;
+		while(current != null)
+		{
+			Node temp=current;
+			current=current.next;
+			temp.next=previous;
+			previous=temp;
+		}
+		return previous;
+	}
+	
 	public static void display()
 	{
 		Node traverse = first;
@@ -124,20 +143,16 @@ class LinkedList
 		System.out.println("null");
 	}
 	
+	
 	public static void main(String[] args)
 	{
-		LinkedList.insert(1);
-		LinkedList.insert(0);
-		LinkedList.insert(3);
-		LinkedList.insert(4);
-		LinkedList.insert(2);
-		
-		LinkedList.display();
-		
-		LinkedList.remove(2);
-		
-		
-		LinkedList.display();
+		double i = 1;
+		while(true)
+		{
+			System.out.println("Inserting " + i);
+			LinkedList.insert((int)i);
+			i=i*10;
+		}		
 	}
 }
 
